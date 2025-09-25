@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./Home.css";
 import axios from 'axios';
 
+//Correct back to normal code
 const Home = () => {
 const [products, setProducts] = useState([]);
 const [category, setCategory] = useState("");
