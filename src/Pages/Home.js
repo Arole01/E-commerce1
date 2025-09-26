@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./Home.css";
 import axios from 'axios';
 
-//Correct back to normal code
+
 const Home = () => {
 const [products, setProducts] = useState([]);
 const [category, setCategory] = useState("");
@@ -58,13 +58,12 @@ return (
                     
                     <h2>{items.slug}</h2>
                     <p>{items.name}</p>
-                    <h3>${items.url}</h3>
                     <button className='btn'>Buy</button>
                 </div>
             )}
             </div>
     </section>
-    {products.length && <h1>{err}</h1>}
+    {products.length ===0 && <h1>{err}</h1>}
     </div>
 );
 };
