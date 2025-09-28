@@ -7,13 +7,14 @@ const Home = () => {
 const [products, setProducts] = useState([]);
 const [category, setCategory] = useState("");
 const [err, setErr] = useState("");
+const [url,setUrl] = useState('https://dummyjson.com/products/categories')
 
 useEffect(() => {
     const fetchProduct = async () => {
     try {
-        const url = 'https://dummyjson.com/products/categories'; 
+        // let url = 'https://dummyjson.com/products/categories'; 
 
-        const response = await axios.get('https://dummyjson.com/products/categories');
+        const response = await axios.get(url);
         setProducts(response.data); 
         setErr(""); 
     } catch (error) {
@@ -22,7 +23,7 @@ useEffect(() => {
     }
     };
     fetchProduct();
-}, [category]); 
+}, [url]); 
 
     
 
@@ -40,7 +41,7 @@ return (
         <div className='categories'>
         <h1>Product Categories</h1>
         <div className='allcategories'>
-            <p className='category-items' onClick={() => setCategory("beauty")}>Beauty</p> 
+            <p className='category-items' onClick={() => setUrl("https://dummyjson.com/products/category/beauty")}>Beauty</p> 
             <p className='category-items' onClick={() => setCategory("laptops")}>Laptops</p>
             <p className='category-items' onClick={() => setCategory("fragrances")}>Fragrances</p>
             <p className='category-items' onClick={() => setCategory("kitchen-appliances")}>Kitchen</p>
@@ -53,7 +54,7 @@ return (
         <div className='allproducts'>
     
             {products.map((items) => 
-
+            
             <div className='products' key = {items}>
                     
                     <h2>{items.slug}</h2>
